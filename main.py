@@ -112,7 +112,6 @@ class Roblox(AbstractAsyncContextManager):
                         return [inner(**o) for o in json]
                     return typing(**json)
                 return json
-    
             return wrapper
         return decorator
 
@@ -148,7 +147,7 @@ class Roblox(AbstractAsyncContextManager):
     def session(self) -> Optional[str]:
         return self.client.cookies.get(".ROBLOSECURITY")
 
-    @token.setter
+    @session.setter
     def session(self, value: str) -> None:
         self.client.cookies[".ROBLOSECURITY"] = value
 
